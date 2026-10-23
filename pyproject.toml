@@ -5,11 +5,17 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "lamassu-guardian"
 version = "0.1.0.dev0"
-description = "Experimental local-first personal guardian archive"
+description = "A personal guardian research prototype from UpBeam Research"
+authors = [{name = "UpBeam Research"}]
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 dependencies = []
+
+[project.urls]
+Homepage = "https://research.upbeam.net"
+Repository = "https://github.com/Autio/lamassu"
+Issues = "https://github.com/Autio/lamassu/issues"
 
 [project.scripts]
 lamassu = "lamassu.__main__:main"

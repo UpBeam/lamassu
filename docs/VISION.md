@@ -1,4 +1,6 @@
-# Product direction
+# Research direction
+
+Lamassu is developed by UpBeam Research, a subdivision of UpBeam OY. We investigate how personal AI systems can preserve knowledge and support their owners over years without tying their history to one agent or provider.
 
 A person should be able to travel with a laptop and phone, use compute at home, and keep years of accumulated knowledge without depending on one model or agent vendor.
 

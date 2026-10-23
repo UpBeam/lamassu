@@ -7,7 +7,8 @@ No dates or integration commitments are implied. Each stage needs a review befor
 - [x] Document boundaries, device roles, memory layers, and decisions.
 - [x] Local neutral-record intake, evidence preservation, idempotence, and literal search.
 - [x] Synthetic tests and CI definition.
-- [ ] Publish repository and verify remote CI.
+- [x] Publish the public repository.
+- [ ] Verify remote CI.
 
 ## 1 — Archive pilot
 
