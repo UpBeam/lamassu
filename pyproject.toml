@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lamassu-guardian"
+version = "0.1.0.dev0"
+description = "Experimental local-first personal guardian archive"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+lamassu = "lamassu.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["lamassu*"]
