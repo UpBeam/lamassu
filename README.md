@@ -2,7 +2,7 @@
 
 # Lamassu
 
-### Your knowledge. Held together.
+### An independent archive for personal AI.
 
 A personal guardian with a long memory and bounded authority. An open-source research project by **[UpBeam Research](https://research.upbeam.net)**, a subdivision of **UpBeam OY**.
 
