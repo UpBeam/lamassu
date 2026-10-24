@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Lamassu / Archive control</title>
+  <link rel="icon" href="/upbeam.jpg">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Lamassu home"><span class="brand-glyph" aria-hidden="true">▥</span><span>lamassu<span class="brand-caption">UPBEAM RESEARCH / 001</span></span></a>
+      <div class="sidebar-label">OPERATIONS</div>
+      <nav aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span aria-hidden="true">◈</span> Overview</button>
+        <button class="nav-item" data-view="archive"><span aria-hidden="true">▤</span> Conversation archive</button>
+        <button class="nav-item" data-view="connections"><span aria-hidden="true">⌘</span> Connections</button>
+        <button class="nav-item" data-view="notes"><span aria-hidden="true">▧</span> Evidence notes</button>
+      </nav>
+      <div class="sidebar-note"><span class="small-orb" aria-hidden="true"></span><strong>Evidence before inference.</strong><p>Source records, explicit connections, and drafts awaiting review.</p></div>
+      <div class="steward"><img src="/upbeam.jpg" alt="UpBeam"><div>UpBeam Research<span>Open-source · pre-alpha</span></div></div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <header class="topbar"><div><span class="status-dot"></span> LOCAL WORKBENCH <span class="divider">/</span> <span id="dataset-label">CONNECTING</span></div><span class="read-only">READ-ONLY SESSION</span></header>
+      <div id="notice" class="notice hidden" role="status"></div>
+      <section id="overview" class="view">
+        <div class="page-heading"><div class="eyebrow">LAMASSU / PERSONAL KNOWLEDGE SYSTEM</div><h1>Archive control<span class="heading-index">/ 01</span></h1><p class="intro">Search conversations. Inspect sources. Record connections.<br class="desktop-break"> Prepare notes for your own archive.</p></div>
+        <div class="overview-grid"><article class="search-panel"><div class="section-kicker">01 / RETRIEVAL</div><h2>Search the record.</h2><p>Exact text search across every retained conversation revision.</p><form id="hero-search" class="search-form"><label class="sr-only" for="hero-query">Search conversation text</label><input id="hero-query" placeholder="Try “offline”, “permissions”, or “backup”" maxlength="1000" required><button type="submit" aria-label="Search archive">↗</button></form><div class="chips"><button data-search="offline">Offline continuity</button><button data-search="evidence">Original evidence</button><button data-search="worker">Worker boundaries</button></div></article><article class="principle-panel"><div class="section-kicker">SESSION AUTHORITY</div><dl class="authority-ledger"><div><dt>Source archive</dt><dd>Read</dd></div><div><dt>Connections</dt><dd>Inspect</dd></div><div><dt>Evidence notes</dt><dd>Download drafts</dd></div><div><dt>Autonomous actions</dt><dd>Disabled</dd></div></dl><p>Changes to your archive require a separate, explicit operation.</p></article></div>
+        <div id="stats" class="stats" aria-label="Archive statistics"></div>
+        <section class="layers-section"><div class="section-heading"><h2>Storage model</h2><span>ARCHIVE → CONNECTIONS → NOTES</span></div><div class="layers"><article><span class="layer-number">01 / PRESERVE</span><h3>Original archive</h3><p>The conversations as they happened, with source bytes, roles, and revisions.</p><span class="layer-state">AVAILABLE NOW</span></article><article><span class="layer-number">02 / CONNECT</span><h3>Working understanding</h3><p>Explicit relationships link the evidence. Automated interpretation comes later.</p><span class="layer-state">EXPLICIT LINKS ONLY</span></article><article><span class="layer-number">03 / CARRY FORWARD</span><h3>Curated knowledge</h3><p>Source-backed drafts for your own Markdown vault. You decide what belongs.</p><span class="layer-state">DRAFT & REVIEW</span></article></div></section>
+        <section><div class="section-heading"><h2>Recent source records</h2><button class="text-button" data-view="archive">View archive ↗</button></div><div id="recent-records" class="recent-records"></div></section>
+      </section>
+      <section id="archive" class="view hidden"><div class="eyebrow">ORIGINAL EVIDENCE</div><h1 class="section-title">Conversation archive</h1><p class="intro">All retained revisions. Every message keeps its speaker and source.</p><form id="archive-search" class="search-form wide"><label class="sr-only" for="archive-query">Search message text</label><input id="archive-query" placeholder="Search the archive…" maxlength="1000"><button type="submit" aria-label="Search">↗</button></form><p id="result-label" class="muted"></p><div id="archive-results" class="record-list"></div></section>
+      <section id="connections" class="view hidden"><div class="eyebrow">RELATIONSHIPS WITH REASONS</div><h1 class="section-title">Source relationships</h1><p class="intro">Explicit links between source revisions. These are recorded interpretations,<br class="desktop-break"> not proof that a claim is true.</p><div id="connection-map" class="connection-map" aria-label="Conversation relationship map"></div><div id="connection-list" class="connection-list"></div></section>
+      <section id="notes" class="view hidden"><div class="eyebrow">03 / REVIEW QUEUE</div><h1 class="section-title">Draft an evidence note</h1><p class="intro">Write your proposed understanding and attach a source. Download a draft<br class="desktop-break"> to review in your Markdown vault. Nothing is published automatically.</p><div class="note-layout"><form id="note-form" class="note-form"><label for="note-source">Source conversation</label><select id="note-source" required></select><label for="note-title">Note title</label><input id="note-title" maxlength="160" placeholder="Name the decision, finding, or question" required><label for="note-statement">Your proposed understanding</label><textarea id="note-statement" rows="7" maxlength="12000" placeholder="What have you learned, decided, or changed your mind about?" required></textarea><button class="primary-button" type="submit">Prepare evidence note ↗</button><p class="muted fine">Explicitly authored by you. No model-generated synthesis.</p></form><article class="note-preview"><div class="section-kicker">DRAFT PREVIEW</div><div id="note-empty"><span class="empty-symbol" aria-hidden="true">▧</span><h2>No draft prepared.</h2><p>Select a source and write your interpretation. The draft will include the original evidence and a review checklist.</p></div><pre id="note-content" class="hidden"></pre><button id="download-note" class="primary-button hidden">Download Markdown draft ↓</button></article></div></section>
+      <footer><span>Lamassu · UpBeam Research</span><span>LOCAL ARCHIVE / EXPLICIT AUTHORITY / PRE-ALPHA</span></footer>
+    </main>
+  </div>
+  <dialog id="record-dialog"><div class="dialog-top"><span class="eyebrow">SOURCE REVISION</span><button id="close-dialog" aria-label="Close conversation">✕</button></div><h2 id="record-title"></h2><div id="record-meta" class="record-meta"></div><div id="record-messages"></div><div class="dialog-bottom"><button id="note-from-record" class="primary-button">Create an evidence note ↗</button></div></dialog>
+</body>
+</html>
