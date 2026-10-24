@@ -15,11 +15,13 @@ def main():
     parser.add_argument(
         "--database",
         type=Path,
-        help="private SQLite archive path; required except for inspect-repo",
+        help="private SQLite archive path; not needed for preview or inspect-repo",
     )
     sub = parser.add_subparsers(dest="command", required=True)
     intake = sub.add_parser("import", help="import a neutral v1 conversation")
     intake.add_argument("file", type=Path)
+    preflight = sub.add_parser("preview", help="inspect JSON intake without importing")
+    preflight.add_argument("file", type=Path)
     search = sub.add_parser(
         "search", help="literal Unicode-aware search across all revisions"
     )
@@ -65,9 +67,16 @@ def main():
     serve = sub.add_parser("serve", help="start a loopback-only, read-only workbench")
     serve.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
-    if args.command != "inspect-repo" and args.database is None:
+    if args.command not in ("inspect-repo", "preview") and args.database is None:
         parser.error("--database is required for this command")
     try:
+        if args.command == "preview":
+            from .intake import preview
+
+            with args.file.open("rb") as source:
+                raw = source.read(MAX_BUNDLE_BYTES + 1)
+            print(json.dumps(preview(raw), ensure_ascii=True, indent=2))
+            return
         if args.command == "inspect-repo":
             from .repository import inspect_repository
 
