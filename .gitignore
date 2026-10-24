@@ -17,3 +17,5 @@ __pycache__/
 /models/
 /build/
 /dist/
+.ruff_cache/
+.pytest_cache/

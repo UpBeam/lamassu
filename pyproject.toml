@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lamassu-guardian"
-version = "0.1.0.dev0"
+version = "0.2.0.dev0"
 description = "A personal guardian research prototype from UpBeam Research"
 authors = [{name = "UpBeam Research"}]
 readme = "README.md"
@@ -14,11 +14,14 @@ dependencies = []
 
 [project.urls]
 Homepage = "https://research.upbeam.net"
-Repository = "https://github.com/Autio/lamassu"
-Issues = "https://github.com/Autio/lamassu/issues"
+Repository = "https://github.com/UpBeam/lamassu"
+Issues = "https://github.com/UpBeam/lamassu/issues"
 
 [project.scripts]
 lamassu = "lamassu.__main__:main"
 
 [tool.setuptools.packages.find]
 include = ["lamassu*"]
+
+[tool.setuptools.package-data]
+lamassu = ["web/*.html", "web/*.css", "web/*.js", "web/*.jpg"]

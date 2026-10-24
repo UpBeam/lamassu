@@ -1,6 +1,6 @@
 # Project stewardship
 
-Lamassu is an open-source research project developed by **UpBeam Research**, a subdivision of **UpBeam OY**. The project's designated research address is [research.upbeam.net](https://research.upbeam.net); the source and public development record are maintained at [Autio/lamassu](https://github.com/Autio/lamassu).
+Lamassu is an open-source research project developed by **UpBeam Research**, a subdivision of **UpBeam OY**. The project's designated research address is [research.upbeam.net](https://research.upbeam.net); the source and public development record are maintained at [Autio/lamassu](https://github.com/UpBeam/lamassu).
 
 ## Purpose
 
@@ -19,7 +19,7 @@ Investigate durable personal knowledge and agents whose initiative operates with
 
 UpBeam Research is the project attribution, not a separately asserted legal entity. The project remains MIT licensed. Existing copyright notices are preserved; this attribution does not transfer copyright or change third-party licenses.
 
-The repository currently lives in a personal GitHub namespace. Research branding does not imply that an organization transfer, website deployment, hosted service, support agreement, or independent security certification has taken place.
+The repository is maintained in the UpBeam GitHub organization. Website deployment, hosted operation, support commitments, and independent security assessment are separate work.
 
 ## Project decisions
 

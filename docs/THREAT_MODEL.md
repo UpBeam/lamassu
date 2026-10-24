@@ -17,7 +17,9 @@ This is a design target, not a claim that mitigations are implemented.
 
 ## Current prototype limits
 
-Plaintext SQLite and input files; no user authentication, service isolation, access policy, durable backup, redaction, deletion workflow, or tamper-proof audit. SHA-256 detects identity of imported bytes but does not authenticate their origin. An owner or process with database access can modify it. Import limits reduce accidental resource exhaustion but are not hostile-input isolation. SQLite is a local single-node choice, not a distributed sync mechanism.
+Plaintext SQLite, input files, and portable bundles; no data-scope authorization, encrypted backup, deletion workflow, autonomous execution, or tamper-proof audit. The loopback workbench has a per-run bearer key, Host/Origin checks, no write endpoints, and a restrictive content-security policy. It is a local development server, not a production remote interface. Local processes, browser extensions, and compromised host accounts are not isolated from private data.
+
+SHA-256 identifies imported bytes but does not authenticate their origin. A process with database access can alter data. Inspection and export check source/projection consistency, while portable restore validates the complete bundle before a transaction applies its changes. Create-only note output avoids overwriting human files, but assumes an owner-controlled directory. The passive repository inventory skips symlinks and reads bounded manifests; it is not a filesystem sandbox or proof of code safety.
 
 ## Recovery design requirements
 
